@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#ffffff"/>
+  <!-- Vue V -->
+  <polygon points="50,50 100,150 150,50" fill="#42b883"/>
+  <polygon points="75,50 100,100 125,50" fill="#35495e"/>
+  <!-- Grid (4 squares) -->
+  <rect x="130" y="30" width="12" height="12" fill="#8e44ad" rx="2"/>
+  <rect x="145" y="30" width="12" height="12" fill="#8e44ad" rx="2"/>
+  <rect x="130" y="45" width="12" height="12" fill="#8e44ad" rx="2"/>
+  <rect x="145" y="45" width="12" height="12" fill="#8e44ad" rx="2"/>
+  <!-- Paper plane -->
+  <polygon points="160,60 185,70 160,80" fill="#8e44ad"/>
+  <!-- Camera button circle -->
+  <circle cx="175" cy="30" r="6" fill="#244668"/>
+</svg>

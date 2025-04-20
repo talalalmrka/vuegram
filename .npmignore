@@ -1,0 +1,8 @@
+node_modules
+src
+vite.config.ts
+tsconfig.json
+*.log
+*.md
+dist/*.map
+playground
