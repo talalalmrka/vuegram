@@ -1,8 +1,16 @@
 {
   "name": "fadgram-vue",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "Creative UI components for Vue 3 styled with Tailwind CSS & fadgram ui by Fadgram",
+  "keywords": [
+    "vue",
+    "ui",
+    "fadgram",
+    "fadgram-vue",
+    "tailwind4-vue",
+    "vue-components"
+  ],
   "main": "dist/fadgram-vue.umd.js",
   "module": "dist/fadgram-vue.es.js",
   "types": "dist/index.d.ts",
