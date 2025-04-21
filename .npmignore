@@ -1,7 +1,12 @@
 node_modules
+.github
+public
 src
+types
 vite.config.ts
 tsconfig.json
+tsconfig.app.json
+tsconfig.node.json
 *.log
 *.md
 dist/*.map

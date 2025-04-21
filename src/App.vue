@@ -17,6 +17,7 @@ import {
   FgAccordionBody,
 
 } from '@/components';
+import Navbar from './views/Navbar.vue';
 const basicValue = ref('')
 const startIconValue = ref('')
 const endIconValue = ref('')
@@ -31,6 +32,7 @@ const alertTypes = ['success', 'info', 'warning', 'error'] as const;
 </script>
 
 <template>
+  <Navbar />
   <div class="container py-8">
     <h3>Quick start</h3>
     <p>

@@ -22,7 +22,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "type-check": "vue-tsc --emitDeclarationOnly --declaration --declarationDir dist"
+    "docs:build": "vite build --base=/vuegram/ --outDir=docs-dist",
+    "docs:preview": "vite preview --outDir=docs-dist",
+    "docs:deploy": "gh-pages -d docs-dist"
   },
   "dependencies": {
     "@iconify/icons-bi": "^1.2.19",
