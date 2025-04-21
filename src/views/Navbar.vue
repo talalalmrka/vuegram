@@ -10,14 +10,12 @@ onMounted(() => {
 </script>
 <template>
     <div class="navbar sticky top-0 z-10 h-14 w-full max-w-full header">
-        <button class="navbar-toggle">
-            <i class="bi-list"></i>
-        </button>
+
         <a title="Fadgram Vue" href="/" class="navbar-brand">
             <img src="/src/assets/logo.png" style="height: 40px;">
         </a>
         <div class="nav navbar-nav justify-center">
-            <div class="form-control-container w-[150px]">
+            <div class="form-control-container w-[150px] hidden md:flex">
                 <span class="absolute start-0 top-0 bottom-0 flex items-center px-2">
                     <i class="icon bi-search text-sm"></i>
                 </span>
