@@ -1,7 +1,5 @@
 @import "tailwindcss";
 @import "fadgram-ui";
-@source "../node_modules/fadgram-vue/**/*.vue";
-@source "../src/**/*.vue";
 @theme {
   --font-poppins: Poppins, sans-serif;
   --color-primary: var(--color-emerald-600);
