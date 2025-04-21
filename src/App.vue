@@ -16,7 +16,7 @@ import {
   FgAccordionHead,
   FgAccordionBody,
 
-} from '@/components';
+} from './components';
 import Navbar from './views/Navbar.vue';
 const basicValue = ref('')
 const startIconValue = ref('')

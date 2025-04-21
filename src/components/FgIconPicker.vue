@@ -2,7 +2,7 @@
 import { ref, computed, watch, onMounted } from 'vue';
 import { vOnClickOutside } from '@vueuse/components'
 import { Icon } from '@iconify/vue';
-import { FgLabel, FgIcon } from '@/components';
+import { FgLabel, FgIcon } from './';
 import biIcons from '@iconify-json/bi/icons.json';
 
 // Static data outside the component to avoid re-computation

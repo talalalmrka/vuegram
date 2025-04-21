@@ -4,7 +4,7 @@ declare module 'prismjs';
 import { ref, onMounted, watch, nextTick } from 'vue'
 import Prism from 'prismjs';
 
-import { FgIcon } from '@/components';
+import FgIcon from './FgIcon.vue';
 import 'prismjs/themes/prism-okaidia.css'
 
 interface Props {

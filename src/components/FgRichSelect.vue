@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, nextTick, watch } from 'vue';
 import { vOnClickOutside } from '@vueuse/components'
-import { FgLabel, FgInfo, FgError, FgInput } from '@/components';
+import { FgLabel, FgInfo, FgError, FgInput } from './';
 defineOptions({ inheritAttrs: false });
 
 interface Option { value: string | number; label: string; icon?: string; disabled?: boolean }
