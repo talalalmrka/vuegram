@@ -1,6 +1,6 @@
 {
   "name": "fadgram-vue",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "description": "Creative UI components for Vue 3 styled with Tailwind CSS & fadgram ui by Fadgram",
   "keywords": [
@@ -11,6 +11,16 @@
     "tailwind4-vue",
     "vue-components"
   ],
+  "author": {
+    "name": "Talal Almrka",
+    "email": "talalminfo@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talalalmrka/fadgram-vue"
+  },
+  "homepage": "https://talalalmrka.github.io/fadgram-vue",
   "main": "dist/fadgram-vue.umd.js",
   "module": "dist/fadgram-vue.es.js",
   "types": "dist/index.d.ts",
