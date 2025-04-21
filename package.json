@@ -1,20 +1,20 @@
 {
-  "name": "vuegram",
+  "name": "fadgram-vue",
   "version": "1.0.0",
   "type": "module",
   "description": "Creative UI components for Vue 3 styled with Tailwind CSS & fadgram ui by Fadgram",
-  "main": "dist/vuegram.umd.js",
-  "module": "dist/vuegram.es.js",
+  "main": "dist/fadgram-vue.umd.js",
+  "module": "dist/fadgram-vue.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "src",
+    "types",
     "README.md"
   ],
   "exports": {
     ".": {
-      "import": "./dist/vuegram.es.js",
-      "require": "./dist/vuegram.umd.js",
+      "import": "./dist/fadgram-vue.es.js",
+      "require": "./dist/fadgram-vue.umd.js",
       "types": "./dist/index.d.ts"
     }
   },

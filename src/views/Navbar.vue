@@ -13,7 +13,7 @@ onMounted(() => {
         <button class="navbar-toggle">
             <i class="bi-list"></i>
         </button>
-        <a title="VueGram" href="/" class="navbar-brand">
+        <a title="Fadgram Vue" href="/" class="navbar-brand">
             <img src="/src/assets/logo.png" style="height: 40px;">
         </a>
         <div class="nav navbar-nav justify-center">
@@ -42,7 +42,7 @@ onMounted(() => {
                     </a>
                 </div>
             </div>
-            <a href="https://github.com/talalalmrka/vuegram" target="_blank"
+            <a href="https://github.com/talalalmrka/fadgram-vue" target="_blank"
                 class="nav-link dropdown-toggle border rounded-lg py-1 px-2">
                 <i class="icon bi-github w-3 h-3"></i>
             </a>

@@ -1,6 +1,6 @@
-# 📦 VueGram
+# 📦 Fadgram vue
 
-VueGram is a ready-to-use Vue 3 component library written in TypeScript and styled with Tailwind CSS.
+Fadgram Vue is a ready-to-use Vue 3 component library written in TypeScript and styled with Tailwind CSS.
 
 It offers a collection of reusable UI components designed to accelerate frontend development in Vue applications.
 
@@ -11,7 +11,7 @@ It offers a collection of reusable UI components designed to accelerate frontend
 Install the library via npm:
 
 ```bash
-npm i vuegram
+npm i fadgram-vue
 ```
 
 ---
@@ -21,7 +21,7 @@ npm i vuegram
 After installation, you can import and use the components in your Vue app:
 
 ```ts
-import { FgAccordion, FgAlert } from "vuegram";
+import { FgAccordion, FgAlert } from "fadgram-vue";
 ```
 
 Example usage:
@@ -43,7 +43,7 @@ Example usage:
 
 For full component API and usage details, visit:
 
-[https://talalalmrka.github.io/vuegram](https://talalalmrka.github.io/vuegram)
+[https://talalalmrka.github.io/fadgram-vue](https://talalalmrka.github.io/fadgram-vue)
 
 ---
 
@@ -425,7 +425,7 @@ For full component API and usage details, visit:
 
 ## 🛠️ Contributing
 
-We welcome contributions to improve VueGram. To contribute:
+We welcome contributions to improve Fadgram Vue. To contribute:
 
 1. Open an issue to discuss the bug or feature.
 2. Fork the repo and open a Pull Request with your changes.

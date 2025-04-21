@@ -36,10 +36,10 @@ const alertTypes = ['success', 'info', 'warning', 'error'] as const;
   <div class="container py-8">
     <h3>Quick start</h3>
     <p>
-      VueGram is a comprehensive Vue 3 components package designed to streamline your development process.
+      Fadgram Vue is a comprehensive Vue 3 components package designed to streamline your development process.
       It offers a wide range of customizable and accessible UI components, including inputs, selects, checkboxes,
       switches, textareas, alerts, and more. With built-in support for icons, sizes, and various styles,
-      VueGram empowers developers to create modern and responsive user interfaces effortlessly.
+      Fadgram Vue empowers developers to create modern and responsive user interfaces effortlessly.
     </p>
 
     <h3 class="mt-5">Requirements</h3>
@@ -50,7 +50,7 @@ const alertTypes = ['success', 'info', 'warning', 'error'] as const;
       <li>Basic knowledge of Vue.js and TypeScript</li>
     </ul>
     <h3 class="mt-5">Installation</h3>
-    <fg-code language="bash">npm i vuegram</fg-code>
+    <fg-code language="bash">npm i fadgram-vue</fg-code>
 
     <h3 class="mt-5">Components</h3>
 

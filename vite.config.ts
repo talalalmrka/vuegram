@@ -26,8 +26,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "VueGram",
-      fileName: (format) => `vuegram.${format}.js`,
+      name: "FadgramVue",
+      fileName: (format) => `fadgram-vue.${format}.js`,
     },
     rollupOptions: {
       // لا تضمّن Vue داخل الحزمة، سيأخذها المستخدم من خارجه
