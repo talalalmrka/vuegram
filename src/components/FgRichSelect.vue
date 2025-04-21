@@ -21,7 +21,6 @@ const props = withDefaults(defineProps<{
   noResults?: string;
 }>(), {
   id: undefined,
-
   options: () => [],
   modelValue: null,
   placeholder: 'Select an option',

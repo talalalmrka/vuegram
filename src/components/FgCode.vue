@@ -10,7 +10,6 @@ import 'prismjs/themes/prism-okaidia.css'
 interface Props {
     language?: string;
     languageLabel?: string;
-    code?: string;
 }
 
 withDefaults(defineProps<Props>(), {

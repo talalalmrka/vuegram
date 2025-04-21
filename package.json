@@ -1,23 +1,26 @@
 {
   "name": "vuegram",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Accordion and UI components for Vue 3 by Fadgram",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
+  "description": "Creative UI components for Vue 3 styled with Tailwind CSS & fadgram ui by Fadgram",
+  "main": "dist/vuegram.umd.js",
+  "module": "dist/vuegram.es.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "README.md"
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/vuegram.es.js",
+      "require": "./dist/vuegram.umd.js",
       "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "type-check": "vue-tsc --emitDeclarationOnly --declaration --declarationDir dist"
   },
@@ -28,11 +31,9 @@
     "@vueuse/components": "^13.1.0",
     "@vueuse/core": "^13.1.0",
     "fadgram-ui": "^0.4.8",
-    "fadgram-vue": "^1.0.3",
     "prismjs": "^1.30.0",
     "tailwindcss": "^4.1.4",
-    "vue": "^3.5.13",
-    "vue3-prism": "^0.1.4"
+    "vue": "^3.5.13"
   },
   "devDependencies": {
     "@iconify/vue": "^4.3.0",
@@ -40,6 +41,7 @@
     "@vue/tsconfig": "^0.7.0",
     "typescript": "~5.7.2",
     "vite": "^6.3.1",
+    "vite-plugin-dts": "^4.5.3",
     "vue-prism-component": "^2.0.0",
     "vue-tsc": "^2.2.8"
   }
