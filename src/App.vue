@@ -28,7 +28,24 @@ const bio = ref('this is bio content')
 const sizes = ref(['xs', 'sm', 'default', 'lg', 'xl', 'xxl'])
 const state = ref('sanaa')
 const remember = ref(false)
+const agree = ref('agree')
+const isAccepted = ref(false)
 const alertTypes = ['success', 'info', 'warning', 'error'] as const;
+const checkboxOptions = ref([
+  {
+    label: 'Banana',
+    value: 'banana',
+  },
+  {
+    label: 'Apple',
+    value: 'apple',
+  },
+  {
+    label: 'Orange',
+    value: 'orange',
+  },
+]);
+const checkboxValues = ref<string[]>([]);
 </script>
 
 <template>
@@ -163,8 +180,22 @@ const alertTypes = ['success', 'info', 'warning', 'error'] as const;
       }
       ]&quot; /&gt;</fg-code>
 
-    <h4 class="mt-4">Checkbox</h4>
-    <FgCheckbox name="agree" label="Agree policy" />
+    <h4 class="mt-6">Checkbox</h4>
+
+    <h6 class="mt-4">String value</h6>
+    <fg-checkbox name="agree" value="agree" v-model="agree" label="Agree policy" />
+    <span>agree: {{ agree }}</span>
+
+    <h6 class="mt-4">Boolean value</h6>
+    <fg-checkbox name="accepted" v-model="isAccepted" label="Accept terms" />
+    <span>isAccepted: {{ isAccepted }}</span>
+
+    <h6 class="mt-4">Checkbox group</h6>
+    <fg-checkbox v-for="option in checkboxOptions" :key="option.value" v-model="checkboxValues" :label="option.label"
+      name="checkboxValues[]" :value="option.value" />
+    <span>checkboxValues:</span>
+    <pre class="text-xs"><code>{{ checkboxValues }}</code></pre>
+
     <h4 class="mt-4">Switch</h4>
     <FgSwitch v-model="remember" name="remember" label="Remember me" :info="remember ? 'true' : 'false'" />
     <fg-code languageLabel="vue">&lt;FgCheckbox name=&quot;agree&quot; label=&quot;Agree policy&quot; /&gt;</fg-code>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { computed, ref } from 'vue';
 import FgLabel from './FgLabel.vue';
 import FgInfo from './FgInfo.vue';
 import FgError from './FgError.vue';
+
 defineOptions({ inheritAttrs: false });
 
 const props = defineProps<{
@@ -11,31 +12,64 @@ const props = defineProps<{
   label?: string;
   info?: string;
   error?: string;
-  modelValue?: boolean;
+  modelValue?: any;      // Accepts boolean, array, or custom value
+  value?: any;           // Checked value for both modes
+  uncheckedValue?: any;  // Unchecked value for single mode
   disabled?: boolean;
 }>();
+
 const emits = defineEmits<{
-  (e: 'update:modelValue', val: boolean): void;
+  (e: 'update:modelValue', val: any): void;
 }>();
 
-const fieldId = ref(props.id || `checkbox-${Math.random().toString(36).substr(2, 9)}`);
-const innerValue = ref(props.modelValue ?? false);
+const fieldId = props.id || `checkbox-${Math.random().toString(36).slice(2, 11)}`;
 const checkboxRef = ref<HTMLInputElement | null>(null);
 defineExpose({ checkboxRef });
 
-watch(() => props.modelValue, val => innerValue.value = val ?? false);
+const isChecked = computed(() => {
+  if (Array.isArray(props.modelValue)) {
+    // Group mode: check if value exists in array
+    return props.value !== undefined && props.modelValue.includes(props.value);
+  }
+  if (props.value !== undefined) {
+    // Single value mode: compare with modelValue
+    return props.modelValue === props.value;
+  }
+  // Default boolean mode
+  return Boolean(props.modelValue);
+});
 
-function update(val: boolean) {
-  emits('update:modelValue', val);
+function update(checked: boolean) {
+  let newValue: any;
+
+  if (Array.isArray(props.modelValue)) {
+    // Group array logic
+    newValue = [...props.modelValue];
+    if (checked) {
+      if (!newValue.includes(props.value)) {
+        newValue.push(props.value);
+      }
+    } else {
+      newValue = newValue.filter((item: any) => item !== props.value);
+    }
+  } else if (props.value !== undefined) {
+    // Single value mode
+    newValue = checked ? props.value : props.uncheckedValue;
+  } else {
+    // Default boolean toggle
+    newValue = !props.modelValue;
+  }
+
+  emits('update:modelValue', newValue);
 }
 </script>
 
 <template>
   <div class="form-check" :class="{ 'error': error }">
-    <input ref="checkboxRef" v-bind="$attrs" type="checkbox" :id="fieldId" :checked="innerValue" :disabled="disabled"
+    <input ref="checkboxRef" v-bind="$attrs" type="checkbox" :id="fieldId" :checked="isChecked" :disabled="disabled"
       @change="update(($event.currentTarget as HTMLInputElement).checked)" />
-    <FgLabel :icon="icon" :label="label" :error="error" :for="fieldId" />
+    <fg-label :icon="icon" :label="label" :error="error" :for="fieldId" />
   </div>
-  <FgInfo :info="info" />
-  <FgError :error="error" />
+  <fg-info :info="info" />
+  <fg-error :error="error" />
 </template>
