@@ -87,7 +87,8 @@ provide<AccordionContext>(AccordionContextKey, {
 </script>
 
 <template>
-    <div class="accordion bg-white dark:bg-gray-700" role="presentation">
+    <div class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg divide-y divide-gray-200 dark:divide-gray-600"
+        role="presentation">
         <slot />
     </div>
 </template>

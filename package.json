@@ -1,6 +1,6 @@
 {
   "name": "fadgram-vue",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "description": "Creative UI components for Vue 3 styled with Tailwind CSS & fadgram ui by Fadgram",
   "keywords": [
@@ -47,6 +47,7 @@
   "dependencies": {
     "@iconify/icons-bi": "^1.2.19",
     "@iconify/tailwind4": "^1.0.6",
+    "@morev/vue-transitions": "^3.0.5",
     "@tailwindcss/vite": "^4.1.4",
     "@vueuse/components": "^13.1.0",
     "@vueuse/core": "^13.1.0",

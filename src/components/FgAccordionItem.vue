@@ -19,7 +19,6 @@ const itemId = props.id || (generateId?.() ?? Math.random().toString(36).slice(2
 provide<string>(ItemIdKey, itemId);
 const isOpen = computed(() => ctx.isItemOpen(itemId));
 const hasTitle = computed(() => props.title || props.icon)
-
 </script>
 
 <template>
