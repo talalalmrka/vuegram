@@ -46,6 +46,22 @@ const checkboxOptions = ref([
   },
 ]);
 const checkboxValues = ref<string[]>([]);
+
+const pageOptions = ref([
+  {
+    label: 'Home',
+    value: 1,
+  },
+  {
+    label: 'About us',
+    value: 2,
+  },
+  {
+    label: 'Contact',
+    value: 3,
+  },
+]);
+const pageValues = ref<string[]>([]);
 </script>
 
 <template>
@@ -195,6 +211,12 @@ const checkboxValues = ref<string[]>([]);
       name="checkboxValues[]" :value="option.value" />
     <span>checkboxValues:</span>
     <pre class="text-xs"><code>{{ checkboxValues }}</code></pre>
+
+    <h6 class="mt-4">Checkbox group (numbers)</h6>
+    <fg-checkbox v-for="option in pageOptions" :key="option.value" v-model="pageValues" :label="option.label"
+      name="pageValues[]" :value="option.value" />
+    <span>pageValues:</span>
+    <pre class="text-xs"><code>{{ pageValues }}</code></pre>
 
     <h4 class="mt-4">Switch</h4>
     <FgSwitch v-model="remember" name="remember" label="Remember me" :info="remember ? 'true' : 'false'" />
