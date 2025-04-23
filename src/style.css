@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "fadgram-ui";
+@import "./icons.css";
+
 @theme {
   --font-poppins: Poppins, sans-serif;
   --color-primary: var(--color-emerald-600);
@@ -27,41 +29,4 @@
   .header {
     @apply bg-white dark:bg-gray-700 shadow;
   }
-}
-pre[class*="language-"] {
-  margin: 0 !important;
-  padding: 0.7em !important;
-}
-
-code[class*="language-"],
-pre[class*="language-"] {
-  font-size: 13px !important;
-  font-family: var(--font-mono) !important;
-  /*max-height: 350px;*/
-  overflow: auto;
-}
-
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: transparent !important;
-}
-
-.icon {
-  &.overview-card-icon {
-    height: calc(var(--spacing) * 10) !important;
-    width: calc(var(--spacing) * 10) !important;
-  }
-}
-
-.code-container {
-  @apply relative mt-4 bg-gray-800 rounded;
-  direction: ltr;
-}
-
-.code-toolbar {
-  @apply text-xs flex justify-between items-center text-gray-200 bg-gray-800 rounded-t px-2 py-1 border-b border-gray-700;
-}
-
-.btn-copy-code {
-  @apply hover:text-white;
 }

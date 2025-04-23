@@ -1,4 +1,4 @@
-export type AccordionMode = 'single' | 'multiple';
+export type AccordionMode = "single" | "multiple";
 export interface AccordionContext {
   openItems: Set<string>;
   toggleItem(id: string): void;
@@ -10,5 +10,5 @@ export interface AccordionContext {
   focusPrev(id: string): void;
 }
 
-export const AccordionContextKey = Symbol('AccordionContext');
-export const ItemIdKey = Symbol('AccordionItemId');
+export const AccordionContextKey = Symbol("AccordionContext");
+export const ItemIdKey = Symbol("AccordionItemId");

@@ -28,7 +28,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "typeRoots": ["./node_modules/@types", "./types"]
+    "typeRoots": ["./node_modules/@types", "./types", "./src/types"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types", "src/components/types.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types",
+    "src/types/*.ts",
+  ]
 }

@@ -26,7 +26,7 @@ import { FgAccordion, FgAlert } from "fadgram-vue";
 
 Example usage:
 
-```html
+```vue
 <template>
   <fg-input
     v-model="name"
@@ -60,7 +60,7 @@ For full component API and usage details, visit:
 
 #### example usage:
 
-```html
+```vue
 <fg-accordion storageKey="accordion-default" persist>
   <fg-accordion-item>
     <fg-accordion-head> Section 1 </fg-accordion-head>
@@ -75,7 +75,7 @@ For full component API and usage details, visit:
 
 #### Multiple:
 
-```html
+```vue
 <fg-accordion multiple storageKey="faq-multiple" persist> ... </fg-accordion>
 ```
 
@@ -91,7 +91,7 @@ For full component API and usage details, visit:
 
 #### example usage:
 
-```html
+```vue
 <fg-accordion-item>
     <fg-accordion-head>Item title</fg-accordion-head>
     <fg-accordion-body>item content<fg-accordion-body>
@@ -100,7 +100,7 @@ For full component API and usage details, visit:
 
 ##### Or
 
-```html
+```vue
 <fg-accordion-item icon="bi-broadcast" title="Broadcast">
     <fg-accordion-body>item content<fg-accordion-body>
 </fg-accordion-item>
@@ -129,11 +129,11 @@ For full component API and usage details, visit:
 
 #### Usage
 
-```html
+```vue
 <fg-alert type="success" content="Everything is great!" />
 ```
 
-```html
+```vue
 <fg-alert success>Everything is great!</fg-alert>
 ```
 
@@ -153,7 +153,7 @@ For full component API and usage details, visit:
 
 #### Usage
 
-```html
+```vue
 <fg-checkbox v-model="checked" label="Accept terms" />
 ```
 
@@ -166,7 +166,7 @@ For full component API and usage details, visit:
 - `language?: string` - default html
 - `languageLabel?: string` - default null
 
-```html
+```vue
 <fg-code language="html">
   {{`
   <div>Hello</div>
@@ -182,7 +182,7 @@ For full component API and usage details, visit:
 
 - `error: string`
 
-```html
+```vue
 <fg-error error="This field is required" />
 ```
 
@@ -194,7 +194,7 @@ For full component API and usage details, visit:
 
 - `icon: string` - bootstrap icon name like (bi-star, bi-chevron-down ...etc)
 
-```html
+```vue
 <fg-icon icon="bi-house-fill" />
 ```
 
@@ -231,7 +231,7 @@ For full component API and usage details, visit:
 | noIconsFound      | `string`                  | "No icons found" | Message when no icons match search                    |
 | searchPlaceholder | `string`                  | "Search..."      | Placeholder for search input                          |
 
-```html
+```vue
 <fg-icon-picker v-model="selectedIcon" />
 ```
 
@@ -243,7 +243,7 @@ For full component API and usage details, visit:
 
 - `info: string`
 
-```html
+```vue
 <fg-info info="Additional info here" />
 ```
 
@@ -265,7 +265,7 @@ For full component API and usage details, visit:
 - `startIcon: string` - default: null (icon to show at start of field ex:bi-person-fill)
 - `endIcon: string` - default: null (icon to show at end of field ex:bi-eye-fill)
 
-```html
+```vue
 <fg-input v-model="name" placeholder="Enter your name" />
 ```
 
@@ -279,7 +279,7 @@ For full component API and usage details, visit:
 - `label: string`
 - `for: string`
 
-```html
+```vue
 <fg-label for="email" text="Email Address" />
 ```
 
@@ -297,21 +297,21 @@ For full component API and usage details, visit:
 - `modelValue: string | number`
 - `options: Array<{ label: string; value: string }>`
 
-```html
+```vue
 <fg-radio
   v-model="choice"
   value="1"
   label="Option 1"
   :options="[
     {
-        label: 'Option 1',
-        value: 1
+      label: 'Option 1',
+      value: 1,
     },
     {
-        label: 'Option 2',
-        value: 2
-    }
-]"
+      label: 'Option 2',
+      value: 2,
+    },
+  ]"
 />
 ```
 
@@ -335,19 +335,19 @@ For full component API and usage details, visit:
 - `clearable?: boolean`
 - `noResults?: string`
 
-```html
+```vue
 <fg-rich-select
   v-model="selected"
   :options="[
     {
-        label: 'Option 1',
-        value: 1
+      label: 'Option 1',
+      value: 1,
     },
     {
-        label: 'Option 2',
-        value: 2
-    }
-]"
+      label: 'Option 2',
+      value: 2,
+    },
+  ]"
 />
 ```
 
@@ -367,19 +367,19 @@ For full component API and usage details, visit:
 - `disabled?: boolean`
 - `options: Array<{ label: string; value: string }>`
 
-```html
+```vue
 <fg-select
   v-model="value"
   :options="[
     {
-        label: 'Option 1',
-        value: 1
+      label: 'Option 1',
+      value: 1,
     },
     {
-        label: 'Option 2',
-        value: 2
-    }
-]"
+      label: 'Option 2',
+      value: 2,
+    },
+  ]"
 />
 ```
 
@@ -397,7 +397,7 @@ For full component API and usage details, visit:
 - `modelValue: boolean`
 - `disabled?: boolean`
 
-```html
+```vue
 <fg-switch v-model="enabled" />
 ```
 
@@ -417,8 +417,47 @@ For full component API and usage details, visit:
 - `placeholder: string`
 - `rows: string | number default 4`
 
-```html
+```vue
 <fg-textarea v-model="text" placeholder="Write something..." />
+```
+
+---
+
+### FgLoader
+
+**Props:**
+
+- `type: LoaderType (default | dotsBounce | dotsFade | dotsMove | dotsRotate | dotsScale) default (default)`
+- `size?: null | 'sm' | 'md' | 'lg' | 'xl' default null`
+
+#### Basic usage:
+
+```vue
+<fg-loader />
+```
+
+#### Type
+
+```vue
+<fg-loader type="dotsBounce" />
+```
+
+```vue
+<fg-loader type="dots-bounce" />
+```
+
+```vue
+<fg-loader dots-bounce />
+```
+
+#### Size
+
+```vue
+<fg-loader size="md" />
+```
+
+```vue
+<fg-loader md />
 ```
 
 ---
