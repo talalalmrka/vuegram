@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, inject, computed, nextTick } from 'vue';
-import { AccordionContextKey, ItemIdKey } from '../types';
-import type { AccordionContext } from '../types';
+import { AccordionContextKey, ItemIdKey } from '../types/fg-accordion.ts';
+import type { AccordionContext } from '../types/fg-accordion.ts';
 import { TransitionExpand } from '@morev/vue-transitions';
 
 

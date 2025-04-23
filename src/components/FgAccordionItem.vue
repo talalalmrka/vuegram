@@ -1,9 +1,9 @@
 /* FgAccordionItem.vue */
 <script setup lang="ts">
-import { provide, inject, computed } from 'vue'
-import { AccordionContextKey, ItemIdKey } from '../types'
-import type { AccordionContext } from '../types'
-import FgAccordionHead from './FgAccordionHead.vue'
+import { provide, inject, computed } from 'vue';
+import { AccordionContextKey, ItemIdKey } from '../types/fg-accordion.ts';
+import type { AccordionContext } from '../types/fg-accordion.ts';
+import FgAccordionHead from './FgAccordionHead.vue';
 
 const props = defineProps<{
     id?: string;

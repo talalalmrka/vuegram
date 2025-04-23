@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { FgLoader, FgCode } from '../components';
-import { LOADER_TYPES, LOADER_SIZES } from '../types';
+import { LOADER_TYPES, LOADER_SIZES } from '../';
 defineOptions({ inheritAttrs: false });
 const sizes = ref<string>([
     'default',

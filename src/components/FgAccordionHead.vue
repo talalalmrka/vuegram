@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, inject, onMounted, onUnmounted, computed, useSlots } from 'vue';
-import { AccordionContextKey, ItemIdKey } from '../types';
-import type { AccordionContext } from '../types';
+import { AccordionContextKey, ItemIdKey } from '../types/fg-accordion.ts';
+import type { AccordionContext } from '../types/fg-accordion.ts';
 import FgIcon from './FgIcon.vue';
 const props = defineProps<{ title?: string; icon?: string }>();
 const slots = useSlots()

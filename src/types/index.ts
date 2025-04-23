@@ -1,2 +1,2 @@
-export * from "./fg-loader.ts";
-export * from "./fg-accordion.ts";
+export * from "./fg-loader";
+export * from "./fg-accordion";
