@@ -2,7 +2,7 @@
 import { ref, computed, watch, onMounted } from 'vue';
 import { vOnClickOutside } from '@vueuse/components'
 import { Icon } from '@iconify/vue';
-import { FgLabel, FgIcon } from './';
+import { FgLabel, FgIcon, FgError } from './';
 import biIcons from '@iconify-json/bi/icons.json';
 
 // Static data outside the component to avoid re-computation
@@ -33,6 +33,7 @@ interface Props {
     perPage?: number;
     noIconsFound?: string;
     searchPlaceholder?: string;
+    error?: string;
 }
 
 const props = defineProps<Props>();
@@ -75,16 +76,6 @@ const pageIcons = computed(() =>
     filteredIcons.value.slice((page.value - 1) * perPage.value, page.value * perPage.value)
 );
 
-// Sync with modelValue
-/*watch(() => props.modelValue, (newVal) => {
-    if (newVal) {
-        const cleanIcon = newVal.replace('bi-', '');
-        const iconIndex = localIcons.value.indexOf(cleanIcon);
-        if (iconIndex > -1) {
-            page.value = Math.ceil((iconIndex + 1) / perPage.value);
-        }
-    }
-});*/
 // Watch for modelValue changes including initial value
 watch(() => props.modelValue, (newVal) => {
     if (newVal) {
@@ -122,22 +113,23 @@ onMounted(() => {
 
 <template>
     <!-- Label -->
-    <FgLabel v-if="label" :for="id" :icon="icon" :required="required" :label="label" />
+    <fg-label v-if="label" :for="id" :icon="icon" :required="required" :label="label" :error="error" />
 
     <!-- Container -->
     <div v-on-click-outside="() => (open = false)" :class="['dropdown inited overflow-visible w-full', containerClass]"
         v-bind="containerAtts">
         <!-- Input Group -->
-        <div class="input-group w-full" :class="[size, groupClass]" v-bind="groupAtts">
+        <div class="input-group w-full" :class="[size, groupClass, { 'error': error }]" v-bind="groupAtts">
             <button type="button" :title="modelValue ?? ''" @click="open = !open" class="items-center">
                 <Icon v-if="modelValue" :icon="modelValue" class="inline-flex" :ssr="true" />
                 <i v-else class="icon invisible"></i>
             </button>
             <input :id="id" :name="name" :value="modelValue" :placeholder="placeholder" :autofocus="autofocus"
                 :autocomplete="autocomplete" :required="required" :disabled="disabled"
-                :class="['form-control', inputClass]" v-bind="atts" ref="input"
+                :class="['form-control', inputClass, { 'error': error }]" v-bind="atts" ref="input"
                 @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
         </div>
+        <fg-error :error="error" />
 
         <!-- Dropdown -->
         <transition enter-active-class="transition ease-out duration-100" enter-from-class="opacity-0 scale-95"

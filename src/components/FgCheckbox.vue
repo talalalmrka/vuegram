@@ -12,9 +12,9 @@ const props = defineProps<{
   label?: string;
   info?: string;
   error?: string;
-  modelValue?: any;      // Accepts boolean, array, or custom value
-  value?: any;           // Checked value for both modes
-  uncheckedValue?: any;  // Unchecked value for single mode
+  modelValue?: any;
+  value?: any;
+  uncheckedValue?: any;
   disabled?: boolean;
 }>();
 

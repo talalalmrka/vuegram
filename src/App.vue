@@ -262,7 +262,7 @@ const pageValues = ref<string[]>([]);
       v-model=&quot;bio&quot; /&gt;</fg-code>
 
     <h4 class="mt-6">Icon Picker</h4>
-    <fg-icon-picker v-model="iconValue" />
+    <fg-icon-picker v-model="iconValue" :error="'an error'" />
     <fg-code language="vue">&lt;fg-icon-picker v-model=&quot;iconValue&quot; /&gt;</fg-code>
 
 
