@@ -212,6 +212,7 @@ For full component API and usage details, visit:
 | label             | `string \| null`          | `null`           | Input label text                                      |
 | icon              | `string`                  | `undefined`      | Icon name for label decoration                        |
 | placeholder       | `string`                  | `undefined`      | Input placeholder text                                |
+| error             | `string`                  | `undefined`      | Input error message                                   |
 | autofocus         | `boolean`                 | `false`          | Auto-focus input on mount                             |
 | autocomplete      | `string`                  | `undefined`      | Input autocomplete attribute                          |
 | required          | `boolean`                 | `false`          | HTML required attribute                               |
