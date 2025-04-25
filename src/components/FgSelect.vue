@@ -39,7 +39,7 @@ function update(val: string | number | null) {
     <FgLabel :icon="icon" :label="label" :error="error" :for="selectId" />
     <select ref="selectRef" v-bind="$attrs" :id="selectId" v-model="innerValue" class="form-select"
       :class="error ? 'error' : ''" @change="update(($event.target as HTMLInputElement).value)">
-      <option v-if="placeholder" :value="null">{{ placeholder }}</option>
+      <option v-if="placeholder" value="">{{ placeholder }}</option>
       <option v-for="opt in options" :key="opt.value" :value="opt.value" :disabled="opt.disabled">
         <i v-if="opt.icon" class="icon" :class="opt.icon"></i> {{ opt.label }}
       </option>
