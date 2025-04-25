@@ -2,7 +2,7 @@
 import { ref, computed, watch, onMounted } from 'vue';
 import { vOnClickOutside } from '@vueuse/components'
 import { Icon } from '@iconify/vue';
-import { FgLabel, FgIcon, FgError } from './';
+import { FgLabel, FgIcon, FgError, FgInfo } from './';
 import biIcons from '@iconify-json/bi/icons.json';
 
 // Static data outside the component to avoid re-computation
@@ -21,7 +21,7 @@ interface Props {
     disabled?: boolean;
     inputClass?: string | null;
     atts?: Record<string, unknown>;
-    info?: string | null;
+    info?: string;
     containerClass?: string | null;
     containerAtts?: Record<string, unknown>;
     groupClass?: string | null;
@@ -37,8 +37,10 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-const emit = defineEmits<{ (e: 'update:modelValue', value: string): void }>();
-
+const emit = defineEmits<{
+    (e: 'update:modelValue', value: string): void;
+    (e: 'change', value: string): void;
+}>();
 // Computed properties
 const id = computed(() => props.id || `icon-picker-${Math.random().toString(36).slice(2, 10)}`);
 const localIcons = computed(() => props.icons || biIconNames);
@@ -86,6 +88,7 @@ watch(() => props.modelValue, (newVal) => {
             page.value = Math.floor(iconIndex / perPage.value) + 1;
         }
     }
+    emit('change', newVal ?? '');
 }, { immediate: true });
 
 // Methods
@@ -94,7 +97,6 @@ function selectIcon(icon: string) {
     open.value = false;
     searchTerm.value = '';
 }
-
 function prevPage() {
     page.value = Math.max(1, page.value - 1);
 }
@@ -119,17 +121,23 @@ onMounted(() => {
     <div v-on-click-outside="() => (open = false)" :class="['dropdown inited overflow-visible w-full', containerClass]"
         v-bind="containerAtts">
         <!-- Input Group -->
-        <div class="input-group w-full" :class="[size, groupClass, { 'error': error }]" v-bind="groupAtts">
-            <button type="button" :title="modelValue ?? ''" @click="open = !open" class="items-center">
-                <Icon v-if="modelValue" :icon="modelValue" class="inline-flex" :ssr="true" />
-                <i v-else class="icon invisible"></i>
+        <div class="relative">
+            <div class="input-group w-full" :class="[size, groupClass, { 'error': error }]" v-bind="groupAtts">
+                <button type="button" :title="modelValue ?? ''" @click="open = !open" class="items-center">
+                    <Icon v-if="modelValue" :icon="modelValue" class="inline-flex" :ssr="true" />
+                    <i v-else class="icon invisible"></i>
+                </button>
+                <input :id="id" :name="name" :value="modelValue" :placeholder="placeholder" :autofocus="autofocus"
+                    :autocomplete="autocomplete" :required="required" :disabled="disabled"
+                    :class="['form-control', inputClass, { 'error': error }]" v-bind="atts" ref="input"
+                    @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
+            </div>
+            <button v-if="modelValue" type="button" @click="(emit('update:modelValue', ''), input && input.focus())"
+                class="absolute end-0 top-1/2 -translate-y-1/2 flex items-center px-1 bg-transparent"
+                :disabled="disabled" aria-label="Clear">
+                <fg-icon icon="bi-x" />
             </button>
-            <input :id="id" :name="name" :value="modelValue" :placeholder="placeholder" :autofocus="autofocus"
-                :autocomplete="autocomplete" :required="required" :disabled="disabled"
-                :class="['form-control', inputClass, { 'error': error }]" v-bind="atts" ref="input"
-                @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
         </div>
-        <fg-error :error="error" />
 
         <!-- Dropdown -->
         <transition enter-active-class="transition ease-out duration-100" enter-from-class="opacity-0 scale-95"
@@ -170,16 +178,18 @@ onMounted(() => {
                     <button type="button"
                         class="flex items-center justify-center rounded-full p-1 hover:bg-gray-200 dark:hover:bg-primary-600 transition-colors"
                         @click.prevent="prevPage" :disabled="page === 1">
-                        <i class="icon bi-chevron-left rtl:rotate-270" />
+                        <i class="icon bi-chevron-left rtl:rotate-270"></i>
                     </button>
                     <span>{{ page }} / {{ pages }}</span>
                     <button type="button"
                         class="flex items-center justify-center rounded-full p-1 hover:bg-gray-200 dark:hover:bg-primary-600 transition-colors"
                         @click.prevent="nextPage" :disabled="page === pages">
-                        <i class="icon bi-chevron-right rtl:rotate-270" />
+                        <i class="icon bi-chevron-right rtl:rotate-270"></i>
                     </button>
                 </div>
             </div>
         </transition>
+        <fg-info :info="info" />
+        <fg-error :error="error" />
     </div>
 </template>
