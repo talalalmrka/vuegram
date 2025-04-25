@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue';
+import { ref, computed } from 'vue';
 import FgInfo from './FgInfo.vue';
 import FgError from './FgError.vue';
 defineOptions({ inheritAttrs: false });
@@ -10,30 +10,62 @@ const props = defineProps<{
   label?: string;
   info?: string;
   error?: string;
-  modelValue?: boolean;
+  value?: any;
+  uncheckedValue?: any;
+  modelValue?: any;
   disabled?: boolean;
 }>();
 const emits = defineEmits<{
-  (e: 'update:modelValue', val: boolean): void;
+  (e: 'update:modelValue', val: any): void;
 }>();
 
 const fieldId = ref(props.id || `toggle-${Math.random().toString(36).substr(2, 9)}`);
-const innerValue = ref(props.modelValue ?? false);
 const toggleRef = ref<HTMLInputElement | null>(null);
 const isFlex = computed(() => props.icon && props.label);
 
 defineExpose({ toggleRef });
 
-watch(() => props.modelValue, val => innerValue.value = val ?? false);
+const isChecked = computed(() => {
+  if (Array.isArray(props.modelValue)) {
+    // Group mode: check if value exists in array
+    return props.value !== undefined && props.modelValue.includes(props.value);
+  }
+  if (props.value !== undefined) {
+    // Single value mode: compare with modelValue
+    return props.modelValue === props.value;
+  }
+  // Default boolean mode
+  return Boolean(props.modelValue);
+});
 
-function update(val: boolean) {
-  emits('update:modelValue', val);
+function update(checked: boolean) {
+  let newValue: any;
+
+  if (Array.isArray(props.modelValue)) {
+    // Group array logic
+    newValue = [...props.modelValue];
+    if (checked) {
+      if (!newValue.includes(props.value)) {
+        newValue.push(props.value);
+      }
+    } else {
+      newValue = newValue.filter((item: any) => item !== props.value);
+    }
+  } else if (props.value !== undefined) {
+    // Single value mode
+    newValue = checked ? props.value : props.uncheckedValue;
+  } else {
+    // Default boolean toggle
+    newValue = !props.modelValue;
+  }
+
+  emits('update:modelValue', newValue);
 }
 </script>
 <template>
   <label :for="fieldId" class="form-switch" :class="{ 'error': error }">
-    <input ref="toggleRef" v-bind="$attrs" type="checkbox" :id="fieldId" :checked="innerValue" :disabled="disabled"
-      @change="update(($event.target as HTMLInputElement).checked)" />
+    <input ref="toggleRef" v-bind="$attrs" type="checkbox" :id="fieldId" :checked="isChecked" :disabled="disabled"
+      @change="update(($event.currentTarget as HTMLInputElement).checked)" />
     <span class="toggle-slider"></span>
     <span class="form-switch-label" :class="{ 'flex-space-2': isFlex }">
       <i v-if="icon" class="icon" :class="icon"></i>
