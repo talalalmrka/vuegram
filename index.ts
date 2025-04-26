@@ -1,0 +1,21 @@
+export * from "./src/types";
+
+export { default as FgAccordion } from "./src/components/FgAccordion.vue";
+export { default as FgAccordionBody } from "./src/components/FgAccordionBody.vue";
+export { default as FgAccordionHead } from "./src/components/FgAccordionHead.vue";
+export { default as FgAccordionItem } from "./src/components/FgAccordionItem.vue";
+export { default as FgAlert } from "./src/components/FgAlert.vue";
+export { default as FgCheckbox } from "./src/components/FgCheckbox.vue";
+export { default as FgCode } from "./src/components/FgCode.vue";
+export { default as FgError } from "./src/components/FgError.vue";
+export { default as FgIcon } from "./src/components/FgIcon.vue";
+export { default as FgIconPicker } from "./src/components/FgIconPicker.vue";
+export { default as FgInfo } from "./src/components/FgInfo.vue";
+export { default as FgInput } from "./src/components/FgInput.vue";
+export { default as FgLabel } from "./src/components/FgLabel.vue";
+export { default as FgLoader } from "./src/components/FgLoader.vue";
+export { default as FgRadio } from "./src/components/FgRadio.vue";
+export { default as FgRichSelect } from "./src/components/FgRichSelect.vue";
+export { default as FgSelect } from "./src/components/FgSelect.vue";
+export { default as FgSwitch } from "./src/components/FgSwitch.vue";
+export { default as FgTextarea } from "./src/components/FgTextarea.vue";

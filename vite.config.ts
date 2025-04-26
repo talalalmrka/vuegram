@@ -8,15 +8,13 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     vue(),
-    dts({
-      // يولّد ملف الأنواع ويُدرجه في dist/index.d.ts
-      insertTypesEntry: true,
-      outDir: "dist",
-      rollupTypes: true,
-      //outputDir: "dist",
-      // لو أردت تعطيل فحص الأنواع أثناء البناء:
-      // skipDiagnostics: true
-    }),
+    dts(),
+    //dts({
+      //insertTypesEntry: true,
+      //outDir: "dist",
+      //rollupTypes: true,
+      //include: ["src/**/*.ts", "src/**/*.vue"], // Include TypeScript and Vue files
+    //}),
   ],
   resolve: {
     alias: {
